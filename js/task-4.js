@@ -7,17 +7,17 @@ refs.loginForm.addEventListener("submit", onLoginFormSubmit);
 function onLoginFormSubmit(event) {
   event.preventDefault();
 
-  if (
-    refs.loginForm.elements.email.value === "" ||
-    refs.loginForm.elements.password.value === ""
-  ) {
+  const email = refs.loginForm.elements.email.value.trim();
+  const password = refs.loginForm.elements.password.value.trim();
+
+  if (email === "" || password === "") {
     alert("All form fields must be filled in");
     return;
   }
 
   const formData = {
-    email: refs.loginForm.elements.email.value.trim(),
-    password: refs.loginForm.elements.password.value.trim(),
+    email,
+    password,
   };
 
   console.log(formData);
